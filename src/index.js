@@ -1,13 +1,17 @@
 const express = require('express');
 const { fetchPrices } = require('../fetchers/priceFetcher');
 const twilio = require('twilio');
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(express.json());
 
+
+dotenv.config();
+
 // Twilio configuration
-const accountSid = 'ACeabb7877a8130b9f6b2d80318d11f6a5';
-const authToken = 'a584cdac557a3ead35ddbfc8080964a6';
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = twilio(accountSid, authToken);
 
 const cryptocurrencies = ['bitcoin', 'ethereum', 'bnb', 'ripple', 'cardano', 'dogecoin', 'polkadot', 'uniswap', 'litecoin', 'chainlink', 'solana'];
