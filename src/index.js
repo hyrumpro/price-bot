@@ -54,7 +54,7 @@ setInterval(async () => {
                 }
             }
 
-            // Check default thresholds
+
             for (const crypto in defaultThresholds) {
                 const { threshold, direction } = defaultThresholds[crypto];
                 const currentPrice = prices[crypto];
